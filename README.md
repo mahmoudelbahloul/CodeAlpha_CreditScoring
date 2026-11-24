@@ -78,7 +78,14 @@ pip install -r requirements.txt
 jupyter notebook credit_scoring.ipynb
 ```
 
-Use the saved model:
+Use the saved model from the command line (CSV with the 20 feature columns of `german.csv`):
+
+```bash
+python predict.py applicants.csv             # P(good) and approve/reject at the 0.70 threshold
+python predict.py applicants.csv --out results.csv
+```
+
+or from Python:
 
 ```python
 import json, joblib
@@ -98,6 +105,7 @@ The model was saved with scikit-learn 1.6.1; load it with the same version.
 ## Files
 
 - `credit_scoring.ipynb`: full analysis with outputs
+- `predict.py`: score a CSV of applicants with the saved model
 - `credit_model.joblib`: fitted pipeline (preprocessing + Logistic Regression)
 - `threshold.json`: decision threshold (0.70)
 - `requirements.txt`: dependencies
